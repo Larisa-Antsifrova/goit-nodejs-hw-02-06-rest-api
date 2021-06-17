@@ -1,12 +1,17 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
+const { v4: uuid } = require("uuid");
 const { Subscription } = require("../helpers/constants");
 
 const subscriptionOptions = Object.values(Subscription);
 
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+      default: "Awesome Guest",
+    },
     password: {
       type: String,
       required: [true, "Password is required."],
@@ -31,6 +36,15 @@ const userSchema = new Schema(
     token: {
       type: String,
       default: null,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    verificationToken: {
+      type: String,
+      required: [true, "Verification token is required"],
+      default: uuid(),
     },
   },
   {

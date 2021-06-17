@@ -17,6 +17,11 @@ const ResponseMessages = {
   loginSuccess: "You have logged in.",
   subcriptionUpdatedSuccess: "Subscription updated.",
   notAuthorized: "Not authorized.",
+  verified: "Your account is verified!",
+  verificationMissing: "Please, verify your account.",
+  alreadyVerified: "Verification has already been passed.",
+  missingEmail: "Required email field is missing.",
+  verificationSent: "New verification email has been sent!",
 };
 
 module.exports = { ResourseNotFoundMessage, ResponseMessages };
